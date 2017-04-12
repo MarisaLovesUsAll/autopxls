@@ -138,7 +138,7 @@ function AutoPXLS(images){
 
             App.switchColor(color_id);
             App.attemptPlace ( (parseInt(x) + parseInt(coords["x"])), (parseInt(y) + parseInt(coords["y"])) );
-            return 1;
+            return 20;
           }
         }
       }
@@ -203,7 +203,7 @@ function AutoPXLS(images){
           continue;
         }
       }
-      setTimeout(draw, 500);
+      setTimeout(draw, 3000);
     }
 
     return;
