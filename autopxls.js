@@ -23,10 +23,10 @@ function AutoPXLS(images){
     return array;
   }
 
-  images = shuffle(images);
+  // images = shuffle(images);
 
 // ===
-  
+
   if (Notification.permission !== "granted")
     Notification.requestPermission();
 
@@ -117,7 +117,7 @@ function AutoPXLS(images){
       }
       if(color_id < 0)
         console.log("pixel at x:" + coords.x + " y: " + coords.y + " has incorrect color.");
-      
+
       return color_id;
     }
 
@@ -138,7 +138,7 @@ function AutoPXLS(images){
 
             App.switchColor(color_id);
             App.attemptPlace ( (parseInt(x) + parseInt(coords["x"])), (parseInt(y) + parseInt(coords["y"])) );
-            return 20;
+            return 1;
           }
         }
       }
@@ -203,7 +203,7 @@ function AutoPXLS(images){
           continue;
         }
       }
-      setTimeout(draw, 3000);
+      setTimeout(draw, 500);
     }
 
     return;
