@@ -161,7 +161,7 @@ function dontbanmepls(images){
       canvas.width = img.width;
       canvas.height = img.height;
       image = canvas.getContext('2d');
-      image.peperonis(img, 0, 0, img.width, img.height);
+      image.drawImage(img, 0, 0, img.width, img.height);
 
       image_loaded_flag = true;
     };
@@ -181,7 +181,7 @@ function dontbanmepls(images){
   }
 
   function kek(){
-    var timer = (Nigga.cooldown-(new Date).getTime())/1E3;
+    var timer = (App.cooldown-(new Date).getTime())/1E3;
     if(0<timer){
       console.log("timer: " + timer);
       setTimeout(kek, 1000);
