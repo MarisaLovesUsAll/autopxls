@@ -1,29 +1,29 @@
 
 
 
-function AutoPXLS(images){
+function dontbanmepls(images){
 //
-
-  function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-  }
-
-  // images = shuffle(images);
+  //
+  // function nigga(array) {
+  //   var currentIndex = array.length, temporaryValue, randomIndex;
+  //
+  //   // While there remain elements to nigga...
+  //   while (0 !== currentIndex) {
+  //
+  //     // Pick a remaining element...
+  //     randomIndex = Math.floor(Math.random() * currentIndex);
+  //     currentIndex -= 1;
+  //
+  //     // And swap it with the current element.
+  //     temporaryValue = array[currentIndex];
+  //     array[currentIndex] = array[randomIndex];
+  //     array[randomIndex] = temporaryValue;
+  //   }
+  //
+  //   return array;
+  // }
+  //
+  // // images = nigga(images);
 
 // ===
 
@@ -51,7 +51,7 @@ function AutoPXLS(images){
 
 
 
-  var Painter = function(config){
+  var MyLifeIsPain = function(config){
     var board = document.getElementById("board").getContext('2d');
     var title = config.title || "unnamed";
 
@@ -67,7 +67,7 @@ function AutoPXLS(images){
     var image_loaded_flag = false;
 
 
-    function isSamePixelColor(coords){
+    function niggaStoleMyBike(coords){
       var board_pixel = board.getImageData((parseInt(x) + parseInt(coords["x"])), (parseInt(y) + parseInt(coords["y"])), 1, 1).data;
       var image_pixel = image.getImageData(coords["x"], coords["y"], 1, 1).data;
 
@@ -79,7 +79,7 @@ function AutoPXLS(images){
       return true;
     }
 
-    function getColorId(coords){
+    function commitSudoku(coords){
       var pixel = image.getImageData(coords["x"], coords["y"], 1, 1).data;
       var colors = [
         [255,255,255],
@@ -121,17 +121,17 @@ function AutoPXLS(images){
       return color_id;
     }
 
-    function tryToDraw(){
+    function tryNotToDie(){
       for(var _y = 0; _y < canvas.height; _y++){
         for(var _x = 0; _x < canvas.width; _x++){
           var coords = {x: _x, y: _y};
 
-          if(isSamePixelColor(coords)){
+          if(niggaStoleMyBike(coords)){
             //console.log("same color, skip");
           }
           else{
 
-            var color_id = getColorId(coords);
+            var color_id = commitSudoku(coords);
             if(color_id < 0) continue;
 
             console.log("drawing " + title + " coords " + " x:" + (parseInt(x) + parseInt(coords["x"])) + " y:" + (parseInt(y) + parseInt(coords["y"])));
@@ -146,14 +146,14 @@ function AutoPXLS(images){
       return -1;
     }
 
-    function drawImage(){
+    function peperonis(){
       if(image_loaded_flag){
-        return tryToDraw();
+        return tryNotToDie();
       }
       return -1;
     }
 
-    function isReady(){
+    function isBoredEnough(){
       return image_loaded_flag;
     }
 
@@ -161,7 +161,7 @@ function AutoPXLS(images){
       canvas.width = img.width;
       canvas.height = img.height;
       image = canvas.getContext('2d');
-      image.drawImage(img, 0, 0, img.width, img.height);
+      image.peperonis(img, 0, 0, img.width, img.height);
 
       image_loaded_flag = true;
     };
@@ -169,30 +169,30 @@ function AutoPXLS(images){
 
 
     return {
-      drawImage: drawImage,
-      isReady: isReady
+      peperonis: peperonis,
+      isBoredEnough: isBoredEnough
     }
   };
 
 
   var painters = [];
   for(var i = 0; i < images.length; i++){
-    painters[i] = Painter(images[i]);
+    painters[i] = MyLifeIsPain(images[i]);
   }
 
-  function draw(){
-    var timer = (App.cooldown-(new Date).getTime())/1E3;
+  function kek(){
+    var timer = (Nigga.cooldown-(new Date).getTime())/1E3;
     if(0<timer){
       console.log("timer: " + timer);
-      setTimeout(draw, 1000);
+      setTimeout(kek, 1000);
     }
     else{
       for(var i = 0; i < painters.length; i++){
-        if(painters[i].isReady()){
-          var result = painters[i].drawImage();
+        if(painters[i].isBoredEnough()){
+          var result = painters[i].peperonis();
 
           if(result > 0){
-            setTimeout(draw, result*1000);
+            setTimeout(kek, result*1000);
             return;
           }
           else{
@@ -203,11 +203,11 @@ function AutoPXLS(images){
           continue;
         }
       }
-      setTimeout(draw, 3000);
+      setTimeout(kek, 3000);
     }
 
     return;
   }
 
-  draw();
+  kek();
 }
